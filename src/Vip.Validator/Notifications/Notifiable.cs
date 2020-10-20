@@ -5,14 +5,30 @@ namespace Vip.Validator.Notifications
 {
     public abstract class Notifiable
     {
+        #region Fields
+
         private readonly List<Notification> _notifications;
+
+        #endregion
+
+        #region Properties
+
+        public IReadOnlyCollection<Notification> Notifications => _notifications;
+        public bool Invalid => _notifications.Any();
+        public bool Valid => !Invalid;
+
+        #endregion
+
+        #region Constructors
 
         protected Notifiable()
         {
             _notifications = new List<Notification>();
         }
 
-        public IReadOnlyCollection<Notification> Notifications => _notifications;
+        #endregion
+
+        #region Methods
 
         public void AddNotification(string property, string message)
         {
@@ -50,7 +66,11 @@ namespace Vip.Validator.Notifications
                 AddNotifications(item);
         }
 
-        public bool Invalid => _notifications.Any();
-        public bool Valid => !Invalid;
+        public void Clear()
+        {
+            _notifications.Clear();
+        }
+
+        #endregion
     }
 }
