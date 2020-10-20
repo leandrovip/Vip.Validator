@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Leandro Ferreira</Authors>
+    <Company>VIP Soluções</Company>
+    <Description>This is a package for domain validation with notification</Description>
+    <Copyright />
+  </PropertyGroup>
+
+</Project>
