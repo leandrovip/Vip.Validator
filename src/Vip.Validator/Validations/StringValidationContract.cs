@@ -22,6 +22,13 @@ namespace Vip.Validator.Validations
 
         public Contract HasMinLen(string val, int min, string property, string message)
         {
+            return HasMinLen(true, val, min, property, message);
+        }
+
+        public Contract HasMinLen(bool predicate, string val, int min, string property, string message)
+        {
+            if (!predicate) return this;
+
             if (val.Length < min)
                 AddNotification(property, message);
 
@@ -30,6 +37,13 @@ namespace Vip.Validator.Validations
 
         public Contract HasMaxLen(string val, int max, string property, string message)
         {
+            return HasMaxLen(true, val, max, property, message);
+        }
+
+        public Contract HasMaxLen(bool predicate, string val, int max, string property, string message)
+        {
+            if (!predicate) return this;
+
             if (val.Length > max)
                 AddNotification(property, message);
 

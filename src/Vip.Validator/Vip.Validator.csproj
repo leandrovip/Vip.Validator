@@ -5,7 +5,13 @@
     <Authors>Leandro Ferreira</Authors>
     <Company>VIP Soluções</Company>
     <Description>This is a package for domain validation with notification</Description>
-    <Copyright />
+    <Copyright>VIP Soluções</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/leandrovip/Vip.Validator</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/leandrovip/Vip.Validator</RepositoryUrl>
+    <PackageTags>vip;domain;validator;notification</PackageTags>
+    <Title>Vip.Validator</Title>
+    <Summary>Biblioteca para validação de domínio de forma simples e prática.</Summary>
   </PropertyGroup>
 
 </Project>

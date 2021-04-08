@@ -46,10 +46,16 @@ namespace Vip.Validator.Tests
         {
             var wrong = new Contract()
                 .Requires()
-                .HasMinLen("null", 5, "string", "String len is less than permited");
+                .HasMinLen(true, "null", 5, "string", "String len is less than permited");
 
             Assert.False(wrong.Valid);
             Assert.Equal(1, wrong.Notifications.Count);
+
+            var rightPredicate = new Contract()
+                .Requires()
+                .HasMinLen(false, "null", 5, "string", "String len is less than permited");
+
+            Assert.True(rightPredicate.Valid);
 
             var right = new Contract()
                 .Requires()
@@ -61,12 +67,19 @@ namespace Vip.Validator.Tests
         [Fact]
         public void MaxLen()
         {
-            var x = new Contract()
+            var wrong = new Contract()
                 .Requires()
-                .HasMaxLen("null", 3, "string", "String len is more than permited");
+                .HasMaxLen(true, "null", 3, "string", "String len is more than permited");
 
-            Assert.False(x.Valid);
-            Assert.Equal(1, x.Notifications.Count);
+            Assert.False(wrong.Valid);
+            Assert.Equal(1, wrong.Notifications.Count);
+
+            var rightPredicate = new Contract()
+                .Requires()
+                .HasMaxLen(false, "null", 3, "string", "String len is more than permited");
+
+            Assert.True(rightPredicate.Valid);
+            Assert.Equal(1, wrong.Notifications.Count);
 
             var right = new Contract()
                 .Requires()
@@ -121,7 +134,7 @@ namespace Vip.Validator.Tests
 
             var right = new Contract()
                 .Requires()
-                .IsEmail("andrebaltieri@gmail.com", "string", "Invalid E-mail");
+                .IsEmail("email@gmail.com", "string", "Invalid E-mail");
 
             Assert.True(right.Valid);
         }
