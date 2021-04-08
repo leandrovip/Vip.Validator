@@ -39,13 +39,13 @@ jobs:
           dotnet-version: "5.0.x"
 
       - name: Build Project
-        run: dotnet build ./src/Vip.Extensions.sln --configuration Release -p:Version=$VERSION_PROJECT
+        run: dotnet build ./src/Vip.Validator.sln --configuration Release -p:Version=$VERSION_PROJECT
 
       - name: Test Project
-        run: dotnet test ./src/Vip.Extensions.sln
+        run: dotnet test ./src/Vip.Validator.sln
 
       - name: Create Package
-        run: dotnet pack ./src/Vip.Extensions/Vip.Extensions.csproj --configuration Release -p:Version=$VERSION_PACKAGE
+        run: dotnet pack ./src/Vip.Validator/Vip.Validator.csproj --configuration Release -p:Version=$VERSION_PACKAGE
 
       - name: Publish Package
-        run: dotnet nuget push ./src/Vip.Extensions/bin/Release/*.nupkg -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_TOKEN }}
+        run: dotnet nuget push ./src/Vip.Validator/bin/Release/*.nupkg -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_TOKEN }}
