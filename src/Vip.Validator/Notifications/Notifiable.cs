@@ -37,21 +37,25 @@ namespace Vip.Validator.Notifications
 
         public void AddNotification(Notification notification)
         {
+            if (notification == null) return;
             _notifications.Add(notification);
         }
 
         public void AddNotifications(IReadOnlyCollection<Notification> notifications)
         {
+            if (notifications == null) return;
             _notifications.AddRange(notifications);
         }
 
         public void AddNotifications(IList<Notification> notifications)
         {
+            if (notifications == null) return;
             _notifications.AddRange(notifications);
         }
 
         public void AddNotifications(ICollection<Notification> notifications)
         {
+            if (notifications == null) return;
             _notifications.AddRange(notifications);
         }
 
@@ -62,8 +66,7 @@ namespace Vip.Validator.Notifications
 
         public void AddNotifications(params Notifiable[] items)
         {
-            foreach (var item in items)
-                AddNotifications(item);
+            foreach (var item in items) AddNotifications(item);
         }
 
         public void Clear()

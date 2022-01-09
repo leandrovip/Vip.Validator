@@ -1,4 +1,5 @@
-﻿using Vip.Validator.Notifications;
+﻿using System.Collections.Generic;
+using Vip.Validator.Notifications;
 using Xunit;
 
 namespace Vip.Validator.Tests
@@ -28,6 +29,16 @@ namespace Vip.Validator.Tests
 
             Assert.False(Valid);
             Assert.Equal(2, Notifications.Count);
+        }
+
+        [Fact]
+        public void AddNotificationsValid()
+        {
+            // Act
+            AddNotifications((IReadOnlyCollection<Notification>) null);
+
+            // Assert
+            Assert.Equal(0, Notifications.Count);
         }
     }
 
